@@ -1,0 +1,25 @@
+﻿@model IEnumerable<EmployeeManagement.Models.Employee>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card-deck">
+    @foreach (var employee in Model)
+    {
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@employee.Name</h3>
+            </div>
+
+            <img src="~/images/download.jpg" asp-append-version="true"/>
+            <div class="card-footer text-center">
+               
+                <a href="~/home/details/@employee.Id" class="button_view">View</a>
+                <a href="~/home/edit/@employee.Id" class="button_edit">Edit</a>
+                <a href="#" class="button_del">Delete</a>
+            </div>
+        </div>
+    }
+</div>

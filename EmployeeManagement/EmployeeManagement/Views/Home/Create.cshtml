@@ -1,0 +1,27 @@
+﻿@model EmployeeManagement.Models.Employee;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+<form asp-controller="home" asp-action="Create">
+    <div class="form-inputs">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name" ></span>
+    </div>
+    <div class="form-inputs">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-inputs">
+        <label asp-for="Department">Department</label>
+        <select asp-for="Department" >
+            <option value="None">None</option>
+            <option value="HR">HR</option>
+            <option value="Payroll">Payroll</option>
+            <option value="IT">IT</option>
+        </select>
+    </div>
+    <input class="submit-button" type="submit"/>
+</form>
