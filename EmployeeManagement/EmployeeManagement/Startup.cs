@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using EmployeeManagement.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace EmployeeManagement
 {
@@ -26,11 +30,18 @@ namespace EmployeeManagement
        
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options=>options.EnableEndpointRouting=false);
+            services.AddMvc(options => {
+                var policy = new AuthorizationPolicyBuilder()
+                                .RequireAuthenticatedUser()
+                                .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+                options.EnableEndpointRouting = false;
+            });
          //   services.AddSingleton<IEmployeeRepository,MockEmployeeRepository>();
             //  services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
             services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(_config.GetConnectionString("EmployeeDBConnection")));
+            services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
         }
 
         //This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +61,7 @@ namespace EmployeeManagement
             app.UseRouting();
 
             app.UseStaticFiles();
+            app.UseAuthentication();
             //app.UseMvcWithDefaultRoute();
             //app.UseMvc();
             app.UseMvc(routes =>

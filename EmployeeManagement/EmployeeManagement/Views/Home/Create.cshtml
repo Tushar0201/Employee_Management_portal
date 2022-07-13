@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 } 
 <form asp-controller="home" asp-action="Create">
+       <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-inputs">
         <label asp-for="Name">Name</label>
         <input asp-for="Name" />

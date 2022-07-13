@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManagement.Controllers
 {
@@ -18,12 +19,14 @@ namespace EmployeeManagement.Controllers
         //[Route("")]
         //[Route("Home")]
         //[Route("Home/Index")]
+        [AllowAnonymous]
         public ViewResult Index()
         {
             IEnumerable<Employee> model = _employeeRepository.GetAllEmployees();
             return View(model);
         }
         //[Route("Home/Details/{id?}")]
+        [AllowAnonymous]
         public ViewResult Details(int id)
         {
             var employee = _employeeRepository.GetEmployee(id);

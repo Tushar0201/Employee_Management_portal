@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LENOVO\\.net core\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj": {}
+    "E:\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj": {}
   },
   "projects": {
-    "D:\\LENOVO\\.net core\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj": {
+    "E:\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LENOVO\\.net core\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
+        "projectUniqueName": "E:\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
         "projectName": "EmployeeManagement",
-        "projectPath": "D:\\LENOVO\\.net core\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
+        "projectPath": "E:\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\LENOVO\\.net core\\EmployeeManagement\\EmployeeManagement\\obj\\",
+        "outputPath": "E:\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.12, )"
