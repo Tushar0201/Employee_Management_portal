@@ -1,0 +1,26 @@
+﻿@model List<UserRoleViewModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	var roleId=ViewBag.roleId;
+}
+<form method="post">
+	  <h2>Add or remove users from this role</h2>
+	   @for (int i = 0; i < Model.Count; i++)
+	{
+		<input type="hidden" asp-for="@Model[i].UserId" />
+                    <input type="hidden" asp-for="@Model[i].UserName" />
+                    <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                        @Model[i].UserName
+                    </label>
+		@*<input type="hidden" asp-for="@Model[i].UserId"/>
+		<input type="hidden" asp-for="@Model[i].UserName"/>
+		<input type="checkbox" value="@Model[i].IsSelected" asp-for="@Model[i].IsSelected "></input>
+		<label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>*@
+	}
+
+	            <input type="submit" value="Update" class="button_edit"
+                   style="width:auto" />
+
+
+</form>
